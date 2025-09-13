@@ -83,7 +83,10 @@ const stageParent = ref(null)
 
 
 .start:focus {
-  outline: 5px solid #08e926;
+  /* outline: 5px solid #08e926; */
+  outline: 10px solid white;
+  outline-offset: 10px;
+
   /* outline: 8px solid #9a009e; */
   /* outline: thick double #08e926; */
 }

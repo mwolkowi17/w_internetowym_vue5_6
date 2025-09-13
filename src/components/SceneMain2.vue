@@ -90,6 +90,13 @@ const if_widok_quizz2 = ref(false);
 //roboczo do edycji quizów
 //const if_widok_quizz2 = ref(true); 
 
+//wartość wskazujaca rodzaj pulapki rodzaju pułapki
+const trapType = ref(0)
+
+//wartości propsów planszy zasadzka
+const titleTrap = ref("Zasadzka!")
+const textTrap = ref("Cofasz się o 2 pola.")
+
 //widoki szans na planszy
 
 const if_szansa1 = ref(true)
@@ -277,8 +284,16 @@ async function kostka_click() {
                 //dodaje wpadki do licznika wpadek
                 liczba_wpadek.value = liczba_wpadek.value + 1
                 //  pokazuje planszę pułapki
-                setTimeout(() => {
+                setTimeout(async() => {
                     if_widok_pulapki.value = true;
+                    //if(krok_gracz1_na_planszy.value!=3){
+                    //trapType.value=metodyPomocnicze.aheadOrBack()
+                    //}
+                    //else{trapType.value=0}
+                    await nextTick()
+                     titleTrap.value=metodyPomocnicze.pokazTekstPulapki(krok_gracz1_na_planszy.value)[0]
+                     textTrap.value=metodyPomocnicze.pokazTekstPulapki(krok_gracz1_na_planszy.value)[1]
+
                     const sound_cofasz = new Audio(new URL('../assets/zla_odp.mp3', import.meta.url).href);
                     sound_cofasz.play();
                 }, 1000)
@@ -370,11 +385,55 @@ if(krok_gracz1_na_planszy.value === 15) {
 const koniecPulapki = () => {
     console.log("emmiter - krok do tyłu");
     console.log(krok_gracz1_na_planszy.value);
-    krok_gracz1_na_planszy.value = krok_gracz1_na_planszy.value - 2;
-    ruch_lokalny = ruch_lokalny - 2;
-    console.log(krok_gracz1_na_planszy.value);
-    pionek_left.value = pozycje_pionka_gracza1[krok_gracz1_na_planszy.value - 1][0]
-    pionek_top.value = pozycje_pionka_gracza1[krok_gracz1_na_planszy.value - 1][1]
+    // krok_gracz1_na_planszy.value = krok_gracz1_na_planszy.value - 2;
+    // ruch_lokalny = ruch_lokalny - 2;
+    // console.log(krok_gracz1_na_planszy.value);
+    // pionek_left.value = pozycje_pionka_gracza1[krok_gracz1_na_planszy.value - 1][0]
+    // pionek_top.value = pozycje_pionka_gracza1[krok_gracz1_na_planszy.value - 1][1]
+
+        //nowe roziazanie planszy zasadzka - początek
+    // let oIlePol = metodyPomocnicze.aheadOrBack();
+    let oIlePol = trapType.value;
+    console.log(oIlePol)
+
+   if (krok_gracz1_na_planszy.value === 3) {
+        krok_gracz1_na_planszy.value = krok_gracz1_na_planszy.value +1;
+        ruch_lokalny = ruch_lokalny + 1;
+        console.log(krok_gracz1_na_planszy.value);
+        pionek_left.value = pozycje_pionka_gracza1[krok_gracz1_na_planszy.value - 1][0]
+        pionek_top.value = pozycje_pionka_gracza1[krok_gracz1_na_planszy.value - 1][1]
+    }
+    if (krok_gracz1_na_planszy.value === 6) {
+        krok_gracz1_na_planszy.value = krok_gracz1_na_planszy.value - 2;
+        ruch_lokalny = ruch_lokalny - 2;
+        console.log(krok_gracz1_na_planszy.value);
+        pionek_left.value = pozycje_pionka_gracza1[krok_gracz1_na_planszy.value - 1][0]
+        pionek_top.value = pozycje_pionka_gracza1[krok_gracz1_na_planszy.value - 1][1]
+    }
+    if ( krok_gracz1_na_planszy.value === 8) {
+        krok_gracz1_na_planszy.value = krok_gracz1_na_planszy.value + 2;
+        ruch_lokalny = ruch_lokalny + 2;
+        console.log(krok_gracz1_na_planszy.value);
+        pionek_left.value = pozycje_pionka_gracza1[krok_gracz1_na_planszy.value - 1][0]
+        pionek_top.value = pozycje_pionka_gracza1[krok_gracz1_na_planszy.value - 1][1]
+    }
+    if (krok_gracz1_na_planszy.value === 11) {
+        krok_gracz1_na_planszy.value = 0;
+        ruch_lokalny = 0;
+        console.log(krok_gracz1_na_planszy.value);
+        pionek_left.value = 30
+        pionek_top.value = 330
+    }
+    if ( krok_gracz1_na_planszy.value === 14) {
+        krok_gracz1_na_planszy.value = krok_gracz1_na_planszy.value - 1;
+        ruch_lokalny = ruch_lokalny - 1;
+        console.log(krok_gracz1_na_planszy.value);
+        pionek_left.value = pozycje_pionka_gracza1[krok_gracz1_na_planszy.value - 1][0]
+        pionek_top.value = pozycje_pionka_gracza1[krok_gracz1_na_planszy.value - 1][1]
+    }
+   
+
+    // koniec tego rozwiązania
     if_ruch_gracza.value = false
     if_rzuc_kostka.value = true;
 
@@ -390,11 +449,56 @@ const koniecPulapki = () => {
 const koniecPulapkiFocusOn = () => {
     console.log("emmiter - krok do tyłu");
     console.log(krok_gracz1_na_planszy.value);
-    krok_gracz1_na_planszy.value = krok_gracz1_na_planszy.value - 2;
-    ruch_lokalny = ruch_lokalny - 2;
-    console.log(krok_gracz1_na_planszy.value);
-    pionek_left.value = pozycje_pionka_gracza1[krok_gracz1_na_planszy.value - 1][0]
-    pionek_top.value = pozycje_pionka_gracza1[krok_gracz1_na_planszy.value - 1][1]
+    // krok_gracz1_na_planszy.value = krok_gracz1_na_planszy.value - 2;
+    // ruch_lokalny = ruch_lokalny - 2;
+    // console.log(krok_gracz1_na_planszy.value);
+    // pionek_left.value = pozycje_pionka_gracza1[krok_gracz1_na_planszy.value - 1][0]
+    // pionek_top.value = pozycje_pionka_gracza1[krok_gracz1_na_planszy.value - 1][1]
+
+   //nowe roziazanie planszy zasadzka - początek
+    // let oIlePol = metodyPomocnicze.aheadOrBack();
+    let oIlePol = trapType.value;
+    console.log(oIlePol)
+
+    if (krok_gracz1_na_planszy.value === 3) {
+        krok_gracz1_na_planszy.value = krok_gracz1_na_planszy.value +1;
+        ruch_lokalny = ruch_lokalny + 1;
+        console.log(krok_gracz1_na_planszy.value);
+        pionek_left.value = pozycje_pionka_gracza1[krok_gracz1_na_planszy.value - 1][0]
+        pionek_top.value = pozycje_pionka_gracza1[krok_gracz1_na_planszy.value - 1][1]
+    }
+    if (krok_gracz1_na_planszy.value === 6) {
+        krok_gracz1_na_planszy.value = krok_gracz1_na_planszy.value - 2;
+        ruch_lokalny = ruch_lokalny - 2;
+        console.log(krok_gracz1_na_planszy.value);
+        pionek_left.value = pozycje_pionka_gracza1[krok_gracz1_na_planszy.value - 1][0]
+        pionek_top.value = pozycje_pionka_gracza1[krok_gracz1_na_planszy.value - 1][1]
+    }
+    if ( krok_gracz1_na_planszy.value === 8) {
+        krok_gracz1_na_planszy.value = krok_gracz1_na_planszy.value + 2;
+        ruch_lokalny = ruch_lokalny + 2;
+        console.log(krok_gracz1_na_planszy.value);
+        pionek_left.value = pozycje_pionka_gracza1[krok_gracz1_na_planszy.value - 1][0]
+        pionek_top.value = pozycje_pionka_gracza1[krok_gracz1_na_planszy.value - 1][1]
+    }
+    if (krok_gracz1_na_planszy.value === 11) {
+        krok_gracz1_na_planszy.value = 0;
+        ruch_lokalny = 0;
+        console.log(krok_gracz1_na_planszy.value);
+        pionek_left.value = 30
+        pionek_top.value = 330
+    }
+    if ( krok_gracz1_na_planszy.value === 14) {
+        krok_gracz1_na_planszy.value = krok_gracz1_na_planszy.value - 1;
+        ruch_lokalny = ruch_lokalny - 1;
+        console.log(krok_gracz1_na_planszy.value);
+        pionek_left.value = pozycje_pionka_gracza1[krok_gracz1_na_planszy.value - 1][0]
+        pionek_top.value = pozycje_pionka_gracza1[krok_gracz1_na_planszy.value - 1][1]
+    }
+   
+
+    // koniec tego rozwiązania
+
     // if_rzuc_kostka.value = true;
 
     // const buttonRzutVis = new Promise((resolve, reject) => {
@@ -498,7 +602,7 @@ function clickWithMouse() {
     }" v-if="if_widok_kostki" role="img" alt="kostka do gry" :aria-label=wyrzuconaWartoscKostki></div>
     <SceneTrap v-if="if_widok_pulapki" @koniec-pulapka="if_widok_pulapki = false, koniecPulapki()"
         @koniec-pulapka-focus="if_widok_pulapki = false; koniecPulapkiFocusOn()" rel="preload"
-        :ifButtonOnFocusTrap="ifTrapFocusOn" />
+        :ifButtonOnFocusTrap="ifTrapFocusOn" :titleOfTrap="titleTrap" :textOfTrap="textTrap"  />
     <SceneQuizz2 v-if="if_widok_quizz2" @koniec-quizz="if_widok_quizz2 = false, koniecQuizu()"
         @koniec-quizz-focus="if_widok_quizz2 = false, koniecQuizuFocusOn()" @odejmij-szanse="odejmijSzanse" msg="Hej"
         :miejsceNaPlanszy="krok_gracz1_na_planszy" :ifButtonOnFocusQuizz2="ifQuizzFocusOn2" rel="preload" />

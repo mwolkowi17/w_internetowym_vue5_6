@@ -8,7 +8,9 @@ defineOptions({
 })
 
 const props = defineProps({
-  ifButtonOnFocusTrap: Boolean
+  ifButtonOnFocusTrap: Boolean,
+  titleOfTrap:String,
+  textOfTrap:String
 })
 
 const trapWidok = useTemplateRef('info-trap')
@@ -31,13 +33,15 @@ function koniecPulapki() {
 
 }
 
+const textAria=props.titleOfTrap+props.textOfTrap
+
 
 </script>
 <template>
   <div class="pulapka1">
-    <div class="info-trap" ref="info-trap" tabindex="0" aria-label="Zasadzka! Cofasz się o dwa pola.">
-      <h2 class="naglowek">Zasadzka!</h2>
-      <h3 class="napis">Cofasz się o dwa pola.</h3>
+    <div class="info-trap" ref="info-trap" tabindex="0" :aria-label="props.titleOfTrap+props.textOfTrap">
+      <h2 class="naglowek">{{ props.titleOfTrap }}</h2>
+      <h3 class="napis">{{props.textOfTrap}}</h3>
     </div>
   </div>
   <button class="przycisk_pulapka1 my-button anim1" @click="$emit('koniec-pulapka'); koniecPulapki()"
@@ -53,14 +57,27 @@ function koniecPulapki() {
   position: absolute;
   left: 100px;
   top: 250px;
+  position: absolute;
+  left: 100px;
+  top: 250px;
+    display: flex;
+  height: 800px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .info-trap {
   height: 256px;
-  width: 812px;
-  position: absolute;
+  width: 912px;
+  /* position: absolute;
   left: 200px;
-  top: 50px;
+  top: 50px; */
+    margin-top: 3em;
+   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .info-trap:focus {
@@ -73,12 +90,19 @@ function koniecPulapki() {
   font-style: bold;
   font-weight: 600;
   font-family: "Proxima Nova", sans-serif;
-  top: -70px;
+  /* top: -70px;
   left: 150px;
   ;
   height: 88px;
   width: 333px;
   position: absolute;
+  z-index: 2; */
+   margin-bottom: 0em;
+ margin-top: 0.2em;
+  height: 88px;
+  width: 333px;
+  display: flex;
+  justify-content: center;
   z-index: 2;
 
 }
@@ -90,13 +114,21 @@ function koniecPulapki() {
   font-weight: 400;
   font-family: "Proxima Nova", sans-serif;
   white-space: nowrap;
-  top: 80px;
+  /* top: 80px;
   ;
   left: 60px;
   height: 88px;
   width: 333px;
   position: absolute;
+  z-index: 2; */
+  margin-top: 0.5em;
+  margin-bottom: 0.6em;
+  height: 88px;
+  width: 333px;
+
   z-index: 2;
+    display: flex;
+  justify-content: center;
 }
 
 .przycisk_pulapka1 {
