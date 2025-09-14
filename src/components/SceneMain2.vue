@@ -457,8 +457,7 @@ const koniecPulapkiFocusOn = () => {
 
    //nowe roziazanie planszy zasadzka - początek
     // let oIlePol = metodyPomocnicze.aheadOrBack();
-    let oIlePol = trapType.value;
-    console.log(oIlePol)
+    
 
     if (krok_gracz1_na_planszy.value === 3) {
         krok_gracz1_na_planszy.value = krok_gracz1_na_planszy.value +1;

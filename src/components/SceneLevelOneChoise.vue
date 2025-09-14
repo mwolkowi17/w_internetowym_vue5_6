@@ -1,14 +1,14 @@
 <script setup>
 import { onMounted } from 'vue';
-defineEmits(['wybor-levelu1','wybor-levelu1-focus']);
+defineEmits(['wybor-levelu1', 'wybor-levelu1-focus']);
 
 const props = defineProps({
-ifButtonOnFocusLevelOne: Boolean
+    ifButtonOnFocusLevelOne: Boolean
 });
 
 onMounted(() => {
     const elementToFocus = document.querySelector(".level-one-button")
-    if (elementToFocus&&props.ifButtonOnFocusLevelOne===true) {
+    if (elementToFocus && props.ifButtonOnFocusLevelOne === true) {
         elementToFocus.focus();
     }
 
@@ -19,9 +19,10 @@ onMounted(() => {
     <div class="tlo-level1" role="img" aria-label="Wybór poziomu">
         <h1 class="sr-only">Wybór poziomu</h1>
     </div>
-    <button class="level-one-button my-button" @click="$emit('wybor-levelu1')" @keydown.enter="$emit('wybor-levelu1-focus')" role="button" 
-         >Poziom 1</button>
-    <button class="level-two-button" role="img" aria-label="poziom 2 niedostępny" aria-disabled ="true" disabled>Poziom 2</button>
+    <button class="level-one-button my-button" @click="$emit('wybor-levelu1')"
+        @keydown.enter="$emit('wybor-levelu1-focus')" role="button">Poziom 1</button>
+    <button class="level-two-button" role="img" aria-label="poziom 2 niedostępny" aria-disabled="true" disabled>Poziom
+        2</button>
 
 </template>
 
@@ -36,16 +37,16 @@ onMounted(() => {
     position: absolute;
 }
 
-.sr-only{
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
 }
 
 .level-one-button {
@@ -69,7 +70,8 @@ onMounted(() => {
 }
 
 .level-one-button:focus {
-    outline: 5px solid #08e926;
+    outline: 10px solid white;
+    outline-offset: 10px;
 }
 
 .level-two-button {
