@@ -70,7 +70,7 @@ onMounted(() => {
 }
 
 .level-one-button:focus {
-    outline: 10px solid white;
+    outline: 5px solid white;
     outline-offset: 10px;
 }
 

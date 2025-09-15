@@ -73,7 +73,7 @@ onMounted(() => {
 .level-one-button:focus {
     /* outline: thick double #08e926; */
     /* outline: 5px solid #08e926; */
-    outline: 10px solid white;
+     outline: 5px solid white;
     outline-offset: 10px;
 }
 
@@ -101,7 +101,7 @@ onMounted(() => {
 .level-two-button:focus {
     /* outline: thick double #08e926; */
     /* outline: 5px solid #08e926; */
-    outline: 10px solid white;
+     outline: 5px solid white;
     outline-offset: 10px;
 }
 </style>

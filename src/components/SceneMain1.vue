@@ -716,7 +716,7 @@ function clickWithMouse() {
 .rzut1:focus {
     /* outline: thick double #08e926; */
     /* outline: 5px solid #9a009e; */
-    outline: 10px solid white;
+    outline: 5px solid #000000;
     outline-offset: 10px;
 }
 
@@ -739,7 +739,8 @@ function clickWithMouse() {
 }
 
 .ruch1:focus {
-    outline: 5px solid #9a009e;
+    outline: 5px solid #000000;
+    outline-offset: 10px;
 }
 
 .ruch-text {

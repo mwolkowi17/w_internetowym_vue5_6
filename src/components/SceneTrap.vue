@@ -156,7 +156,8 @@ const textAria=props.titleOfTrap+props.textOfTrap
 
 .przycisk_pulapka1:focus {
   /* outline: thick double #08e926; */
-  outline: 5px solid #08e926;
+  outline: 5px solid #ffffff;
+  outline-offset: 10px;
 }
 
 /* The animation code */

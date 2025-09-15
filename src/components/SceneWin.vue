@@ -115,8 +115,8 @@ fanfary.play();
 }
 
 .gram-jeszcze-1:focus {
-    /* outline: thick double #08e926; */
-    outline: 5px solid #08e926;
+     outline: 5px solid #ffffff;
+    outline-offset: 10px;
 }
 
 .zakoncz-gre {
@@ -142,8 +142,8 @@ fanfary.play();
 }
 
 .zakoncz-gre:focus {
-    /* outline: thick double #08e926; */
-    outline: 5px solid #08e926;
+      outline: 5px solid #ffffff;
+    outline-offset: 10px;
 }
 
 /* The animation code */

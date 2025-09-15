@@ -748,7 +748,8 @@ function clickWithMouse() {
 }
 
 .ruch2:focus {
-    outline: 5px solid #9a009e;
+    outline: 5px solid #000000;
+    outline-offset: 10px;
 }
 
 .ruch-text {
@@ -780,7 +781,8 @@ function clickWithMouse() {
 
 .rzut2:focus {
     /* outline: thick double #08e926; */
-    outline: 5px solid #9a009e;
+   outline: 5px solid #000000;
+    outline-offset: 10px;
 }
 
 .szansa_ksztalt1 {

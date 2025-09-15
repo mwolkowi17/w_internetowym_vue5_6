@@ -540,8 +540,8 @@ li {
 
 .button-dalej:focus {
 
-    /* outline: thick double #08e926 !important; */
-    outline: 5px solid #9a009e !important;
+    outline: 5px solid #000000 !important;
+  outline-offset: 10px;
 }
 
 .plansza-dobrze {
@@ -646,8 +646,8 @@ li {
 }
 
 .button-dalej-dobrze:focus {
-    /* outline: thick double #08e926 !important; */
-    outline: 5px solid #08e926 !important;
+   outline: 5px solid #ffffff !important;
+  outline-offset: 10px;
 }
 
 /* The animation code */

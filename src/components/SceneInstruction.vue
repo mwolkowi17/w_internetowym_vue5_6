@@ -198,7 +198,7 @@ const textToDisplayCzytnik= "Znajdujesz się w Wirtualnej Dżungli - aby ją prz
   /* border: 4px solid #08e926; */
   /* outline: thick double #08e926; */
   /*outline: 5px solid #08e926;*/
-  outline: 10px solid white;
+  outline: 5px solid white;
   outline-offset: 10px;
 }
 
