@@ -23,7 +23,7 @@ przegrana_sound.play();
 <template>
     <div class="plansza-lose">
         <div class="info-end2" ref="info-end2" tabindex="0" aria-label="Niestety przegrałeś. Chcesz spróbować jeszcze raz?">
-            <h2 class="naglowek">Niestety przegrałeś.</h2>
+            <h2 class="naglowek">Przegrana.</h2>
             <h2 class="napis">Chcesz spróbować jeszcze raz?</h2>
         </div>
     </div>
@@ -63,7 +63,7 @@ przegrana_sound.play();
     font-weight: 600;
     font-family: "Proxima Nova", sans-serif;
     top: 0px;
-    left: 160px;
+    left: 355px;
     height: 88px;
     width: 333px;
     position: absolute;
@@ -136,7 +136,7 @@ przegrana_sound.play();
 }
 
 .zakoncz-gre:focus {
-       outline: 5px solid #ffffff;
+    outline: 5px solid #ffffff;
     outline-offset: 10px;
 }
 

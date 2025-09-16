@@ -29,7 +29,7 @@ fanfary.play();
     <div class="plansza-win">
         <div class="info-win2" ref="info-win2" tabindex="0" aria-level="Gratulacje! Udało ci się ukonczyć grę.">
             <h1 class="naglowek">Gratulacje!</h1>
-            <h2 class="napis">Udało Ci się ukończyć grę.</h2>
+            <h2 class="napis">Udało ci się ukończyć grę.</h2>
         </div>
     </div>
     <button class="gram-jeszcze-1 my-button anim1" @click="$emit('jeszcze-raz')"
@@ -40,7 +40,7 @@ fanfary.play();
 
 <style scoped>
 .plansza-win {
-    background-image: url("../assets/zakonczenie_gry_plansza.png");
+    background-image: url("../assets/ukonczenie_poziomu1.png");
     background-size: 1920px 1080px;
     height: 1080px;
     width: 1920px;
@@ -69,7 +69,7 @@ fanfary.play();
     font-weight: 600;
     font-family: "Proxima Nova", sans-serif;
     top: 0px;
-    left: 280px;
+    left: 350px;
     height: 88px;
     width: 333px;
     position: absolute;

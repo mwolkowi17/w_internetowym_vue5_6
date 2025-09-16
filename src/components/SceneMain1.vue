@@ -546,7 +546,7 @@ function clickWithMouse() {
     <div class="ikona-meta" role="img" alt=""></div>
     <div class="pionek1" :style="{ left: pionek_left + 'px', top: pionek_top + 'px' }" role="img" alt="ikona"
         aria-label="Pionek"></div>
-    <h3 class="szanse-napis">Szanse:</h3>
+    <h3 class="szanse-napis">Szanse</h3>
     <div class="szansa1 szansa_ksztalt1" v-if="if_szansa1" role="img" alt="ikona" aria-label="Szansa 1"></div>
     <div class="szansa2 szansa_ksztalt1" v-if="if_szansa2" role="img" alt="ikona" aria-label="Szansa 2"></div>
     <div class="szansa3 szansa_ksztalt1" v-if="if_szansa3" role="img" alt="ikona" aria-label="Szansa 3"></div>
